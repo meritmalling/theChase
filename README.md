@@ -22,3 +22,5 @@ Reworking the board: it would, perhaps, be better to hide and show icons instead
 More animations for a more fun user experience! (e.g. building the board on start)
 
 Used: jQuery (plugins: typed, timer)
+
+http://merittrompeter.github.io/project-one
