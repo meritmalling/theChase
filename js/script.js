@@ -43,7 +43,6 @@ $(function(){
 		detectiveLocation.parent().append(detectiveImage);
 		thiefLocation.parent().append(thiefImage);
 		player = 'detective';
-		$('#currentThief').addClass('notactive');
 		$('#gametimer').timer({
 				    duration: '2m00s',
 				    callback: function() {
@@ -59,6 +58,7 @@ $(function(){
 						});
 					}
 				});
+		$('#currentThief').addClass('notactive');
 	});
 
 // Mouseover Change Color
@@ -156,7 +156,7 @@ $(function(){
 				player = 'detective';
 				$('#currentThief').addClass('notactive');
 				$('#currentDetective').removeClass('notactive');
-				$('#gametimer').timer('resume')
+				$('#gametimer').timer('resume');
 			}
 		} else if (player === 'detective'){
 			$('#gametimer').timer('resume');
