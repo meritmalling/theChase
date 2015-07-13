@@ -42,7 +42,23 @@ $(function(){
 		thiefLocation.hide();
 		detectiveLocation.parent().append(detectiveImage);
 		thiefLocation.parent().append(thiefImage);
-		player = 'thief';
+		player = 'detective';
+		$('#currentThief').addClass('notactive');
+		$('#gametimer').timer({
+				    duration: '2m00s',
+				    callback: function() {
+						$('#tubelines').hide();
+						$('#gameboard').hide();
+						$('#gameover').show();
+						$('#winner').typed({
+					        strings: ['Congratulations Thief, you got away!',
+					        'New Game?'],
+					   		typeSpeed: 7,
+					        backDelay: 1000,
+					        contentType: 'text'
+						});
+					}
+				});
 	});
 
 // Mouseover Change Color
@@ -60,18 +76,11 @@ $(function(){
 				}
 			}
 	});
-// Mouseout Change Back
-	var changeColorBack = function(line){
-		$('.middle.'+line).css('background-color', 'black')
-		$('.right.'+line).css('border-left', '30px solid black');
-		$('.left.'+line).css('border-right', '30px solid black');		
-	}
-
 	$('#tubelines h1').on('mouseout', function(){
 		for (var key in lines){
 			var obj = lines[key];
 			if ($(this).hasClass(key)){
-				changeColorBack(key)
+				changeColor(key, 'black')
 			}
 		}
 	});
@@ -147,21 +156,7 @@ $(function(){
 				player = 'detective';
 				$('#currentThief').addClass('notactive');
 				$('#currentDetective').removeClass('notactive');
-				$('#gametimer').timer({
-				    duration: '2m00s',
-				    callback: function() {
-						$('#tubelines').hide();
-						$('#gameboard').hide();
-						$('#gameover').show();
-						$('#winner').typed({
-					        strings: ['Congratulations Thief, you got away!',
-					        'New Game?'],
-					   		typeSpeed: 7,
-					        backDelay: 1000,
-					        contentType: 'text'
-						});
-					}
-				});
+				$('#gametimer').timer('resume')
 			}
 		} else if (player === 'detective'){
 			$('#gametimer').timer('resume');
