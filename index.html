@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+    <script src='js/script.js'></script>
+    <script src="js/typed.js"></script>
+	<script src="js/timer.js"></script>
+    <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
+
+	<title>Game</title>
+</head>
+<body>
+	<div class='container'>
+		<div id='intro'>
+				<h1 id='welcome'></h1>
+		</div>
+		<div id='gameover'>
+				<h1 id='winner'></h1>
+		</div>
+		<div id='tubelines' class='header row'>
+			<h1 class='tubesign waterloo'id='waterlooIcon'>Waterloo & City</h1> 
+			<h1 class='tubesign victoria' id='victoriaIcon'>Victoria</h1>
+			<h1 class='tubesign bakerloo' id='bakerlooIcon'>Bakerloo</h1>
+			<h1 class='tubesign metropolitan' id='metropolitanIcon'>Metropolitan</h1>
+			<h1 class='tubesign hammersmith' id='hammersmithIcon'>HammerSmith & City</h1>
+			<h3 id='location'>That line doesn't stop here!</h3>
+			<div id='gametimer'class='col-sm-2 col-md-offset-5'>
+				<input type="text" name="timer" class="form-control timer" style='text-align: center' placeholder="0 sec">
+			</div>
+			<div class='col-md-6'>
+				<img id='detectiveConsoleIcon' src='http://www.clker.com/cliparts/1/y/f/S/A/q/male-detective-hi.png'>
+				<h2 class='locations' id='currentDetective'></h2>
+			</div>
+			<div class='col-md-6'>
+				<img id='thiefConsoleIcon' src='http://www.clker.com/cliparts/f/E/g/Y/O/w/travis-md.png'>
+				<h2 class='locations' id='currentThief'></h2>
+			</div>
+		</div>
+		<div class='row'>
+		<div id='gameboard'>
+				<div class='hex-row row>'>
+					<div class='hex'>
+						<div class='left metropolitan bakerloo'></div>
+						<div class='middle metropolitan bakerloo'>
+							<p class='metropolitan bakerloo' id='picadilly'>
+							Picadilly</p>
+						</div>
+						<div class='right metropolitan bakerloo'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left waterloo'></div>
+						<div  class='middle waterloo'>
+							<p class ='waterloo' id='royalAlbert'>
+							Royal Albert Hall</p>
+						</div>
+						<div class='right waterloo'></div>
+					</div>
+					<div class='hex'>
+						<div class='left victoria metropolitan'></div>
+						<div class='middle victoria metropolitan'>
+							<p class='victoria metropolitan' id='stPauls'>
+							St Paul's Cathedral</p>
+						</div>
+						<div class='right victoria metropolitan'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left hammersmith victoria'></div>
+						<div class='middle hammersmith victoria'>
+							<p = class='hammersmith victoria' id='hydePark'>
+							Hyde Park</p>
+						</div>
+						<div class='right hammersmith victoria'></div>
+					</div>
+					<div class='hex'>
+						<div class='left victoria waterloo'></div>
+						<div class='middle victoria waterloo'>
+							<p class='victoria waterloo' id='covetGarden'>
+							Covet Garden</p>
+						</div>
+						<div class='right victoria waterloo'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left hammersmith'></div>
+						<div class='middle hammersmith'>
+							<p class='hammersmith' id='towerOfLondon'>
+							Tower of London</p>
+						</div>
+						<div class='right hammersmith'></div>
+					</div>
+					<div class='hex'>
+						<div class='left victoria bakerloo'></div>
+						<div class='middle victoria bakerloo'>
+							<p class='victoria bakerloo' id='trafalgarSquare'>
+							Trafalgar Square</p>
+						</div>
+						<div class='right victoria bakerloo'></div>
+					</div>
+				</div>
+				<div class='hex-row row>'>
+					<div class='hex'>
+						<div class='left metropolitan'></div>
+						<div class='middle metropolitan'>
+							<p class='metropolitan' id='oldBailey'>
+							The Old Bailey</p>
+						</div>
+						<div class='right metropolitan'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left victoria'></div>
+						<div class='middle victoria'>
+							<p class='victoria' id='globleTheater'>
+							The Globe Theater</p>
+						</div>
+						<div class='right victoria'></div>
+					</div>
+					<div class='hex'>
+						<div class='left metropolitan'></div>
+						<div class='middle metropolitan'>
+							<p class='metropolitan' id='hamsteadHeath'>
+							Hamstead</p>
+						</div>
+						<div class='right metropolitan'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left waterloo bakerloo'></div>
+						<div class='middle waterloo bakerloo'>
+							<p class='waterloo bakerloo' id='kewGardens'>
+							Kew Gardens</p>
+						</div>
+						<div class='right waterloo bakerloo'></div>
+					</div>
+					<div class='hex'>
+						<div class='left bakerloo'></div>
+						<div class='middle bakerloo'>
+							<p class='bakerloo' id='bigBen'>
+							Big Ben</p>
+						</div>
+						<div class='right bakerloo'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left metropolitan'></div>
+						<div class='middle metropolitan'>
+							<p class='metropolitan' id='leicesterSquare'>
+							Leicester Square</p>
+						</div>
+						<div class='right metropolitan'></div>
+					</div>
+					<div class='hex'>
+						<div class='left waterloo'></div>
+						<div class='middle waterloo'>
+							<p class='waterloo' id='portobelloRoad'>
+							Portobello Road</p>
+						</div>
+						<div class='right waterloo'></div>
+					</div>
+				</div>
+				<div class='hex-row row>'>
+					<div class='hex'>
+						<div class='left hammersmith waterloo bakerloo'></div>
+						<div class='middle hammersmith waterloo bakerloo'>
+							<p class='hammersmith waterloo bakerloo' id='westminster'>
+							Westminster Cathedral</p>
+						</div>
+						<div class='right hammersmith waterloo bakerloo'></div>
+					</div>
+					<div class='hex even victoria metropolitan'>
+						<div class='left victoria metropolitan'></div>
+						<div class='middle victoria metropolitan'>
+							<p class='victoria metropolitan' id='yeOldCheshireCheese'>
+							Seven Stars</p>
+						</div>
+						<div class='right victoria metropolitan'></div>
+					</div>
+					<div class='hex'>
+						<div class='left waterloo hammersmith'></div>
+						<div class='middle waterloo hammersmith'>
+							<p  class='waterloo hammersmith' id='canaryWharf'>
+							Canary Wharf</p>
+						</div>
+						<div class='right waterloo hammersmith'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left waterloo'></div>
+						<div class='middle waterloo'>
+							<p class='waterloo' id='theMall'>
+							The Mall</p>
+						</div>
+						<div class='right waterloo'></div>
+					</div>
+					<div class='hex'>
+						<div class='left bakerloo'></div>
+						<div class='middle bakerloo'>
+							<p class='bakerloo' id='boroughMarket'>
+							Borough Market</p>
+						</div>
+						<div class='right bakerloo'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left victoria'></div>
+						<div class='middle victoria'>
+							<p class='victoria' id='theEye'>
+							Kensington Palace</p>
+						</div>
+						<div class='right victoria'></div>
+					</div>
+					<div class='hex'>
+						<div class='left victoria'></div>
+						<div class='middle victoria'>
+							<p class='victoria' id='camdenLock'>
+							Camden Lock</p>
+						</div>
+						<div class='right victoria'></div>
+					</div>
+				</div>
+				<div class='hex-row row>'>
+					<div class='hex'>
+						<div class='left bakerloo'></div>
+						<div class='middle bakerloo'>
+							<p  class='bakerloo' id='britishMuseum'>
+							British Museum</p>
+							</div>
+						<div class='right bakerloo'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left bakerloo'></div>
+						<div class='middle bakerloo'>
+							<p class='bakerloo waterloo' id='downingStreet'>
+							Downing Street</p>
+						</div>
+						<div class='right bakerloo'></div>
+					</div>
+					<div class='hex'>
+						<div class='left victoria'></div>
+						<div class='middle victoria'>
+							<p class='victoria' id='nottingHill'>
+							Notting Hill</p>
+						</div>
+						<div class='right victoria'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left metropolitan'></div>
+						<div class='middle metropolitan'>
+							<p  class='metropolitan' id='bakerStreet'>
+							Baker Steet</p>
+						</div>
+						<div class='right metropolitan'></div>
+					</div>
+					<div class='hex'>
+						<div class='left waterloo hammersmith'></div>
+						<div class='middle waterloo hammersmith'>
+							<p class='waterloo hammersmith' id='wimbledon'>
+							Wimbledon</p>
+						</div>
+						<div class='right waterloo hammersmith'></div>
+					</div>
+					<div class='hex even'>
+						<div class='left metropolitan'></div>
+						<div class='middle metropolitan'>
+							<p class='metropolitan' id='vaMuseum'>
+							V&A Museum</p>
+							</div>
+						<div class='right metropolitan'></div>
+					</div>
+					<div class='hex'>
+						<div class='left waterloo hammersmith bakerloo'></div>
+						<div class='middle waterloo hammersmith bakerloo'>
+							<p class='waterloo hammersmith bakerloo' id='buckingham'>
+							Buckingham Palace</p>
+						</div>
+						<div class='right waterloo hammersmith bakerloo'></div>
+					</div>
+				</div>
+			<div class='row'>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
