@@ -1,4 +1,4 @@
-# project-one
+# The Chase
 
 WDI Game Project
 
